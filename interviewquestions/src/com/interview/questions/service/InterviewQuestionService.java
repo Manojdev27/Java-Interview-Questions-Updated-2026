@@ -98,11 +98,20 @@ public interface InterviewQuestionService {
 		
 		// Calculate the average of the numbers
 		public Double calculateTheAverage(int[] arr);
-		
+
 		// Find the Second Highest Salary
 		public Optional<Double> findTheSecondHighestSalary(List<Employee> employee);
-		
+
 		// Find the Second Highest Salary Employee Object
 		public Optional<Employee> findTheSecondHighestSalaryEmployeeObject(List<Employee> employee);
-				
+		//Print the Kth Smallest Element
+		public int kthSmallElement(int[] arr, int k);
+
+		// Remove All numeric characters in a string
+		public List<String> removeAllNumericCharactersInString(String[] newArr);
+
+		// Remove All Non numeric characters in a string
+		public List<String> removeAllNonNumericCharactersInString(String[] newArr);
+
+
 }
