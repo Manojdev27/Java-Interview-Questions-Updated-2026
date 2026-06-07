@@ -273,7 +273,7 @@ public class InterviewQuestionsServiceImpl implements InterviewQuestionService{
 	public Optional<Employee> findTheSecondHighestSalaryEmployeeObject(List<Employee> employee) {
 	
 		return employee.stream().sorted(Comparator.comparingDouble(Employee::getSalary).reversed()).skip(1).findFirst();
-		
+
 	}
 
 	@Override

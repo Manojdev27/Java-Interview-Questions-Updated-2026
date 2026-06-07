@@ -124,19 +124,19 @@ public class Main {
 		System.out.println(main.interviewQuestionsServiceImpl.removeAllNonNumericCharactersInString(newInputString));
 
 		System.out.println(main.interviewQuestionsServiceImpl.findTheRepeatedCharacterInString(str));
-		
+
 		List<Map<String, Object>> empList = Arrays.asList(
 			    Map.of("eid", 1, "name", "Alice"),
 			    Map.of("eid", 2, "name", "Bob"),
 			    Map.of("eid", 3, "name", "Charlie")
 			);
-			 
+
 			List<Map<String, Object>> salaryList = Arrays.asList(
 			    Map.of("eid", 1, "salary", 60000),
 			    Map.of("eid", 2, "salary", 40000),
 			    Map.of("eid", 3, "salary", 70000)
 			);
-			
+
 			Optional<String> salaryLessthan50 = salaryList
 					.stream().filter(e-> (int) e.get("salary") < 50000)
 					.map(salary ->{
@@ -147,8 +147,8 @@ public class Main {
 								.orElse(null);
 					})
 					.findFirst();
-			
-			
+
+
 			// Create a map of eid -> name for O(1) lookup
 			Map<Integer, String> empMap = empList.stream()
 			    .collect(Collectors.toMap(
@@ -165,7 +165,7 @@ public class Main {
 			    .orElse(null);
 
 			System.out.println(empName);  // Output: Bob
-			
+
 			System.out.println(salaryLessthan50);
 	}
 }
