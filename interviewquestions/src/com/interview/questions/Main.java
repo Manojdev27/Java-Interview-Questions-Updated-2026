@@ -1,9 +1,11 @@
 package com.interview.questions;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import com.interview.questions.model.Employee;
 import com.interview.questions.service.impl.InterviewQuestionsServiceImpl;
 
 public class Main {
@@ -22,7 +24,7 @@ public class Main {
 	private static List<Integer> newIntegerList = Arrays.asList(171,150,120,130,10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,
 			24, 25);
 
-	private static List<String> stringList = Arrays.asList("abc", "def", "123", "567", "899", "931", "555", "new",
+	private static List<String> stringList = Arrays.asList("123abcd","abc", "def", "123", "567", "899", "931", "555", "new",
 			"old");
 
 	private static String specialString = "123abcABCdefXYZ567@786!";
@@ -67,7 +69,7 @@ public class Main {
 
 		System.out.println(main.interviewQuestionsServiceImpl.listThatContainsOnlyIntegers(stringList));
 
-		System.out.println(main.interviewQuestionsServiceImpl.listThatContainsOnlyString(stringList));
+		System.out.println("The List that contains Only String: "+main.interviewQuestionsServiceImpl.listThatContainsOnlyString(stringList));
 
 		System.out.println(main.interviewQuestionsServiceImpl.removeIntegersInString(specialString));
 
@@ -96,5 +98,19 @@ public class Main {
 		System.out.println(main.interviewQuestionsServiceImpl.sumOfAllUniqueNumbers(notUniqueArray));
 		
 		System.out.println(main.interviewQuestionsServiceImpl.productOfArrayElements(input));
+		
+		System.out.println(main.interviewQuestionsServiceImpl.calculateTheAverage(newArray));
+		
+		List<Employee> employee = new ArrayList<>();
+		employee.add(new Employee(1,"Harry",90000.0));
+		employee.add(new Employee(2,"Hermione",70000.0));
+		employee.add(new Employee(3,"Ron",80000.0));
+		employee.add(new Employee(4,"Nevile",80000.0));
+		employee.add(new Employee(5,"DumbleDore",100000.0));
+		
+		System.out.println(main.interviewQuestionsServiceImpl.findTheSecondHighestSalary(employee));
+		
+		System.out.println(main.interviewQuestionsServiceImpl.findTheSecondHighestSalaryEmployeeObject(employee));
+		
 	}
 }

@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import com.interview.questions.model.Employee;
+
 
 public interface InterviewQuestionService {
 
@@ -94,5 +96,13 @@ public interface InterviewQuestionService {
 		// product of each elements in an array
 		public List<Integer> productOfArrayElements(int[] arr);
 		
+		// Calculate the average of the numbers
+		public Double calculateTheAverage(int[] arr);
+		
+		// Find the Second Highest Salary
+		public Optional<Double> findTheSecondHighestSalary(List<Employee> employee);
+		
+		// Find the Second Highest Salary Employee Object
+		public Optional<Employee> findTheSecondHighestSalaryEmployeeObject(List<Employee> employee);
 				
 }

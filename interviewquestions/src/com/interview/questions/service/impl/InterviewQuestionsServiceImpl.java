@@ -1,6 +1,5 @@
 package com.interview.questions.service.impl;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
@@ -12,6 +11,7 @@ import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import com.interview.questions.model.Employee;
 import com.interview.questions.service.InterviewQuestionService;
 
 public class InterviewQuestionsServiceImpl implements InterviewQuestionService{
@@ -109,7 +109,7 @@ public class InterviewQuestionsServiceImpl implements InterviewQuestionService{
 	@Override
 	public List<String> listThatContainsOnlyString(List<String> numString) {
 		
-		return numString.stream().filter(x->!x.matches("[0-9]+")).map(String::valueOf)
+		return numString.stream().filter(x->x.matches("[a-zA-Z]+")).map(String::valueOf)
 				.collect(Collectors.toList());
 	}
 
@@ -254,6 +254,25 @@ public class InterviewQuestionsServiceImpl implements InterviewQuestionService{
 			            .filter(x -> x != n)
 			            .reduce(1, (x, y) -> x * y))
 			        .toList();
+	}
+
+	@Override
+	public Double calculateTheAverage(int[] arr) {
+		List<Integer> numList = Arrays.stream(arr).boxed().toList();
+		return numList.stream().mapToDouble(Integer::doubleValue).average().getAsDouble();
+	}
+
+	@Override
+	public Optional<Double> findTheSecondHighestSalary(List<Employee> employee) {
+		return employee.stream().map(Employee::getSalary).sorted(Comparator.reverseOrder()).skip(1).findFirst();
+
+	}
+
+	@Override
+	public Optional<Employee> findTheSecondHighestSalaryEmployeeObject(List<Employee> employee) {
+	
+		return employee.stream().sorted(Comparator.comparingDouble(Employee::getSalary)).skip(1).findFirst();
+		
 	}
 	
 }
