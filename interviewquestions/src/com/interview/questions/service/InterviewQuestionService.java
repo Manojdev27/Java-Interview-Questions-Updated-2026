@@ -104,5 +104,7 @@ public interface InterviewQuestionService {
 		
 		// Find the Second Highest Salary Employee Object
 		public Optional<Employee> findTheSecondHighestSalaryEmployeeObject(List<Employee> employee);
+		
+		public List<Character> findTheRepeatedCharacterInString(String newString);
 				
 }

@@ -10,7 +10,6 @@ public class Employee {
 	private String email;
 	public Employee() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public Employee(int id, String name, Double salary, String email) {
 		super();

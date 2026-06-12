@@ -112,5 +112,6 @@ public class Main {
 		
 		System.out.println(main.interviewQuestionsServiceImpl.findTheSecondHighestSalaryEmployeeObject(employee));
 		
+		System.out.println(main.interviewQuestionsServiceImpl.findTheRepeatedCharacterInString(str));
 	}
 }

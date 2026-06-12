@@ -271,8 +271,17 @@ public class InterviewQuestionsServiceImpl implements InterviewQuestionService{
 	@Override
 	public Optional<Employee> findTheSecondHighestSalaryEmployeeObject(List<Employee> employee) {
 	
-		return employee.stream().sorted(Comparator.comparingDouble(Employee::getSalary)).skip(1).findFirst();
+		return employee.stream().sorted(Comparator.comparingDouble(Employee::getSalary).reversed()).skip(1).findFirst();
 		
+	}
+
+	@Override
+	public List<Character> findTheRepeatedCharacterInString(String newString) {
+		return newString.chars().mapToObj(c-> (char) Character.toLowerCase(c))
+				.filter(c->Character.isLetter(c))
+				.collect(Collectors.groupingBy(Function.identity(),LinkedHashMap::new,Collectors.counting()))
+				.entrySet().stream()
+				.filter(e->e.getValue()>1).map(Map.Entry::getKey).collect(Collectors.toList());
 	}
 	
 }
