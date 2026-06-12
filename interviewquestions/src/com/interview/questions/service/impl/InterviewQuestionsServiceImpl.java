@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import com.interview.questions.model.Employee;
@@ -282,6 +283,26 @@ public class InterviewQuestionsServiceImpl implements InterviewQuestionService{
 				.collect(Collectors.groupingBy(Function.identity(),LinkedHashMap::new,Collectors.counting()))
 				.entrySet().stream()
 				.filter(e->e.getValue()>1).map(Map.Entry::getKey).collect(Collectors.toList());
+	}
+
+	@Override
+	public int kthSmallElement(int[] arr, int k) {
+		List<Integer> arrList = Arrays.stream(arr).boxed().toList();
+		return arrList.stream().sorted().skip(k-1).findFirst().get();
+	}
+
+	@Override
+	public List<String> removeAllNumericCharactersInString(String[] newArr) {
+		List<String> arrList = Arrays.stream(newArr).toList();
+		Pattern pattern = Pattern.compile("[0-9]");
+		return arrList.stream().map(x->pattern.matcher(x).replaceAll("")).collect(Collectors.toList());
+	}
+
+	@Override
+	public List<String> removeAllNonNumericCharactersInString(String[] newArr) {
+		List<String> arrList = Arrays.stream(newArr).toList();
+		Pattern pattern = Pattern.compile("[^0-9]");
+		return arrList.stream().map(x->pattern.matcher(x).replaceAll("")).collect(Collectors.toList());
 	}
 	
 }
