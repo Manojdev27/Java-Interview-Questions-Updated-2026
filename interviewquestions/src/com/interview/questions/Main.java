@@ -44,6 +44,8 @@ public class Main {
 
 	private static int[] input = {1, 2, 3, 4};
 
+	private static String[] newInputString = {"a1b2c3","b2c3d4","e5f6g7","h8i9j10k11"};
+
 	public static void main(String[] args) {
 
 		Main main = new Main();
@@ -98,20 +100,27 @@ public class Main {
 		System.out.println(main.interviewQuestionsServiceImpl.sumOfAllUniqueNumbers(notUniqueArray));
 		
 		System.out.println(main.interviewQuestionsServiceImpl.productOfArrayElements(input));
-		
+
 		System.out.println(main.interviewQuestionsServiceImpl.calculateTheAverage(newArray));
-		
+
 		List<Employee> employee = new ArrayList<>();
 		employee.add(new Employee(1,"Harry",90000.0));
 		employee.add(new Employee(2,"Hermione",70000.0));
 		employee.add(new Employee(3,"Ron",80000.0));
 		employee.add(new Employee(4,"Nevile",80000.0));
 		employee.add(new Employee(5,"DumbleDore",100000.0));
-		
+
 		System.out.println(main.interviewQuestionsServiceImpl.findTheSecondHighestSalary(employee));
-		
+
 		System.out.println(main.interviewQuestionsServiceImpl.findTheSecondHighestSalaryEmployeeObject(employee));
-		
+
+
+		System.out.println(main.interviewQuestionsServiceImpl.kthSmallElement(newArray, 3));
+
+		System.out.println(main.interviewQuestionsServiceImpl.removeAllNumericCharactersInString(newInputString));
+
+		System.out.println(main.interviewQuestionsServiceImpl.removeAllNonNumericCharactersInString(newInputString));
+
 		System.out.println(main.interviewQuestionsServiceImpl.findTheRepeatedCharacterInString(str));
 	}
 }
