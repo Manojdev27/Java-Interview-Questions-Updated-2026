@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import com.interview.questions.model.Employee;
 import com.interview.questions.service.impl.InterviewQuestionsServiceImpl;
@@ -113,5 +115,48 @@ public class Main {
 		System.out.println(main.interviewQuestionsServiceImpl.findTheSecondHighestSalaryEmployeeObject(employee));
 		
 		System.out.println(main.interviewQuestionsServiceImpl.findTheRepeatedCharacterInString(str));
+		
+		List<Map<String, Object>> empList = Arrays.asList(
+			    Map.of("eid", 1, "name", "Alice"),
+			    Map.of("eid", 2, "name", "Bob"),
+			    Map.of("eid", 3, "name", "Charlie")
+			);
+			 
+			List<Map<String, Object>> salaryList = Arrays.asList(
+			    Map.of("eid", 1, "salary", 60000),
+			    Map.of("eid", 2, "salary", 40000),
+			    Map.of("eid", 3, "salary", 70000)
+			);
+			
+			Optional<String> salaryLessthan50 = salaryList
+					.stream().filter(e-> (int) e.get("salary") < 50000)
+					.map(salary ->{
+						int eid = (int) salary.get("eid");
+						return empList.stream().filter(emp->(int)emp.get("eid")==eid)
+								.map(emp->(String) emp.get("name"))
+								.findFirst()
+								.orElse(null);
+					})
+					.findFirst();
+			
+			
+			// Create a map of eid -> name for O(1) lookup
+			Map<Integer, String> empMap = empList.stream()
+			    .collect(Collectors.toMap(
+			        emp -> (Integer) emp.get("eid"),
+			        emp -> (String) emp.get("name")
+			    ));
+
+			System.out.println(empMap);
+			// Find name with salary < 50000
+			String empName = salaryList.stream()
+			    .filter(salary -> (Integer) salary.get("salary") < 50000)
+			    .map(salary -> empMap.get((Integer) salary.get("eid")))
+			    .findFirst()
+			    .orElse(null);
+
+			System.out.println(empName);  // Output: Bob
+			
+			System.out.println(salaryLessthan50);
 	}
 }
