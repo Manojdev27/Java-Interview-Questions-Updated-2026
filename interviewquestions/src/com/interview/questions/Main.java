@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.interview.questions.model.Employee;
@@ -106,11 +109,11 @@ public class Main {
 		System.out.println(main.interviewQuestionsServiceImpl.calculateTheAverage(newArray));
 
 		List<Employee> employee = new ArrayList<>();
-		employee.add(new Employee(1,"Harry",90000.0));
-		employee.add(new Employee(2,"Hermione",70000.0));
-		employee.add(new Employee(3,"Ron",80000.0));
-		employee.add(new Employee(4,"Nevile",80000.0));
-		employee.add(new Employee(5,"DumbleDore",100000.0));
+		employee.add(new Employee(1,"Harry Potter",90000.0));
+		employee.add(new Employee(2,"Hermione Granger",70000.0));
+		employee.add(new Employee(3,"Ronald Weasley",80000.0));
+		employee.add(new Employee(4,"Nevile Longbottom",80000.0));
+		employee.add(new Employee(5,"Albus DumbleDore",100000.0));
 
 		System.out.println(main.interviewQuestionsServiceImpl.findTheSecondHighestSalary(employee));
 
@@ -124,6 +127,41 @@ public class Main {
 		System.out.println(main.interviewQuestionsServiceImpl.removeAllNonNumericCharactersInString(newInputString));
 
 		System.out.println(main.interviewQuestionsServiceImpl.findTheRepeatedCharacterInString(str));
+
+		System.out.println(main.interviewQuestionsServiceImpl.findTopThreeEmployeesWithHighSalary(employee));
+
+
+		String s1 = new String("hello");
+		String s2 = new String("hello");
+		System.out.println(s1 == s2);        // false (different references)
+		System.out.println(s1.equals(s2));
+
+		String s3 = "Java";
+		String s4 = "Java";
+		System.out.println(s3 == s4);
+		System.out.println(s3.equals(s4));
+
+
+		String s5 = "New";
+		String s6 = new String("New");
+		System.out.println(s5 == s6);
+		System.out.println(s5.equals(s6));
+
+		boolean isStudent = false;
+		boolean isActive = false;
+
+		if(isStudent) {
+			System.out.println("You are Student");
+		}else {
+			System.out.println("You are not a student");
+		}
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter your name: ");
+		String name = scanner.nextLine();
+		System.out.println("You are "+ name);
+		scanner.close();
+
 
 		List<Map<String, Object>> empList = Arrays.asList(
 			    Map.of("eid", 1, "name", "Alice"),
