@@ -117,4 +117,5 @@ public interface InterviewQuestionService {
 
 		public List<Character> findTheRepeatedCharacterInString(String newString);
 
+		public List<Employee> findTopThreeEmployeesWithHighSalary(List<Employee> employee);
 }

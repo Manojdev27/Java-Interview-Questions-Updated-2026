@@ -304,5 +304,10 @@ public class InterviewQuestionsServiceImpl implements InterviewQuestionService{
 		Pattern pattern = Pattern.compile("[^0-9]");
 		return arrList.stream().map(x->pattern.matcher(x).replaceAll("")).collect(Collectors.toList());
 	}
-	
+
+	@Override
+	public List<Employee> findTopThreeEmployeesWithHighSalary(List<Employee> employee) {
+		return employee.stream().sorted(Comparator.comparingDouble(Employee::getSalary).reversed()).limit(3).toList();
+	}
+
 }
