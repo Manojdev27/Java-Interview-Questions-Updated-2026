@@ -50,6 +50,12 @@ public class Main {
 	private static int[] input = {1, 2, 3, 4};
 
 	private static String[] newInputString = {"a1b2c3","b2c3d4","e5f6g7","h8i9j10k11"};
+	
+	private static int[] newNumArray = {1,2,4,5,6,7};
+	
+	private static String newInputStringValue = "Programming";
+	
+	private static String valueString = "aaaabbbbccceeeeffffffff";
 
 	public static void main(String[] args) {
 
@@ -156,11 +162,11 @@ public class Main {
 			System.out.println("You are not a student");
 		}
 
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter your name: ");
-		String name = scanner.nextLine();
-		System.out.println("You are "+ name);
-		scanner.close();
+//		Scanner scanner = new Scanner(System.in);
+//		System.out.println("Enter your name: ");
+//		String name = scanner.nextLine();
+//		System.out.println("You are "+ name);
+//		scanner.close();
 
 
 		List<Map<String, Object>> empList = Arrays.asList(
@@ -205,5 +211,26 @@ public class Main {
 			System.out.println(empName);  // Output: Bob
 
 			System.out.println(salaryLessthan50);
+			
+			System.out.println(main.interviewQuestionsServiceImpl.countVowelsInString("Welcome World"));
+			
+			System.out.println(main.interviewQuestionsServiceImpl.isPalindrome("Madam"));
+			
+			System.out.println(main.interviewQuestionsServiceImpl.reverseAString("Madam"));
+			
+			main.interviewQuestionsServiceImpl.swapTwoNumbers(10, 15);
+			
+			System.out.println(main.interviewQuestionsServiceImpl.isArmstrong(9474));
+			
+			System.out.println(main.interviewQuestionsServiceImpl.findTheMissingNumber(newNumArray, 7));
+			
+			int[] twoSumResult = main.interviewQuestionsServiceImpl.twoSum(newArray, 10);			
+			System.out.println(Arrays.toString(twoSumResult));
+			
+			main.interviewQuestionsServiceImpl.possibleSubString(newInputStringValue);
+			
+			main.interviewQuestionsServiceImpl.countExtraCharacters(valueString);
+			
+			
 	}
 }

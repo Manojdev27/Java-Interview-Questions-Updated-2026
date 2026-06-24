@@ -8,6 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -218,13 +219,13 @@ public class InterviewQuestionsServiceImpl implements InterviewQuestionService{
 	@Override
 	public void listOfVowelsAndItsOccurencesInString(String str) {
 		
-		Arrays.stream(str.split(" ")).filter(word-> !word.isEmpty())
-		.forEach(word -> {
+		Arrays.stream(str.split(" ")).filter(word->!word.isEmpty())
+		.forEach(word-> {
 			Long count = word.chars().mapToObj(c->(char) c)
-			.filter(c-> "[^aeiouAEIOU]".indexOf(c) >=0).count();
+					.filter(c->"[^aeiouAEIOU]".indexOf(c) >= 0).count();
+			System.out.println(word + " ->" + count + " vowel(s)");
 			
-			System.out.println(word + " -> "+ count + " vowel(s)");
-			});
+		});
 	}
 
 	@Override
@@ -308,6 +309,123 @@ public class InterviewQuestionsServiceImpl implements InterviewQuestionService{
 	@Override
 	public List<Employee> findTopThreeEmployeesWithHighSalary(List<Employee> employee) {
 		return employee.stream().sorted(Comparator.comparingDouble(Employee::getSalary).reversed()).limit(3).toList();
+	}
+
+	@Override
+	public int countVowelsInString(String str) {
+		int vowelCount =0;
+		for(char c: str.toLowerCase().toCharArray()) {
+			if(c=='a'|| c=='e'|| c=='i'|| c=='o'|| c=='u') {
+				vowelCount++;
+			}
+		}	
+		return vowelCount;
+	}
+
+	@Override
+	public boolean isPalindrome(String str) {
+		String reversed = "";
+		char[] characts = str.toCharArray();
+		
+		for(int i=characts.length-1;i>=0;i--) {
+			reversed += characts[i];
+		}
+		
+		return str.equalsIgnoreCase(reversed);
+	}
+
+	@Override
+	public String reverseAString(String str) {
+		String reversed = "";
+		char[] characts = str.toLowerCase().toCharArray();
+		
+		for(int i=characts.length-1;i>=0;i--) {
+			reversed += characts[i];
+		}
+		return reversed;
+	}
+
+	@Override
+	public void swapTwoNumbers(int a, int b) {
+	
+		System.out.println("Before Swapping a is: "+a);
+		System.out.println("Before Swapping b is: "+b);
+		
+		a = (a+b) -(b=a);
+		
+		System.out.println("After Swapping a is: "+a);
+		System.out.println("After Swapping b is: "+b);
+		
+		
+	}
+
+	@Override
+	public boolean isArmstrong(int num) {
+		int originalNum =num;
+		int result = 0;
+		int n = String.valueOf(num).length();
+		
+		while(num != 0) {
+			int digit = num%10;
+			result += Math.pow(digit, n);
+			num /=10;
+		}
+		return result == originalNum;
+	}
+
+	@Override
+	public int findTheMissingNumber(int[] num, int n) {
+		
+		int expectedSum = n * (n+1)/2;
+		int actualSum =0;
+		for(int newNum : num) {
+			actualSum += newNum;
+		}
+		return expectedSum - actualSum;
+	}
+
+	@Override
+	public int[] twoSum(int[] arr,int target) {
+		
+		for(int i=0;i<arr.length;i++) {
+			for(int j=i+1;j<=arr.length;j++) {
+				if(target == arr[i]+arr[j]) {
+					return new int[] {i,j};
+				}
+				
+			}
+		}
+		return new int[] {};
+	}
+
+	@Override
+	public void possibleSubString(String str) {
+		for(int i=0;i<str.length();i++) {
+			for(int j=i+1;j<str.length();j++) {
+			System.out.println(str.substring(i, j));
+			}
+		}
+	}
+
+	@Override
+	public void countExtraCharacters(String str) {
+	
+		char[] cs = str.toCharArray();
+		HashMap<Character, Integer> hashMap = new HashMap<>();
+		for (Character c:cs) {
+			if(hashMap.containsKey(c)) {
+				hashMap.put(c, hashMap.get(c)+1);
+			}
+			else {
+				hashMap.put(c, 1);
+			}
+		}
+		
+		Set<Character> newSet = hashMap.keySet();
+		
+		for(Character chNew : newSet) {
+			System.out.print(chNew + ""+hashMap.get(chNew));
+		}
 	}
 
 }

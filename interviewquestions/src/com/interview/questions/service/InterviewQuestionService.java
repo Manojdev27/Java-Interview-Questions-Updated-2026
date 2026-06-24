@@ -118,4 +118,23 @@ public interface InterviewQuestionService {
 		public List<Character> findTheRepeatedCharacterInString(String newString);
 
 		public List<Employee> findTopThreeEmployeesWithHighSalary(List<Employee> employee);
+		
+		public int countVowelsInString(String str);
+		
+		public boolean isPalindrome(String str);
+		
+		public String reverseAString(String str);
+		
+		public void swapTwoNumbers(int a, int b);
+		
+		public boolean isArmstrong(int num);
+		
+		public int findTheMissingNumber(int[] num, int n);
+		
+		public int[] twoSum(int[] arr,int target);
+		
+		public void possibleSubString(String str);
+		
+		public void countExtraCharacters(String str);
+		
 }
